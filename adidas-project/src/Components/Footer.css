@@ -1,0 +1,87 @@
+.navbar30 {
+    width: 100%;
+    height: 80px;
+    background-color: #EDE734;
+}
+.navbar31 {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid blue; */
+    padding-top: 30px;
+}
+.navbar31 > h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+.navbar31 > button {
+    display: flex;
+    justify-content: space-between;
+    width: 170px;
+    height: 30px;
+    background-color: black;
+    color: white;
+}
+.navbar31 > button > p {
+    font-size: 12px;
+    margin-left: 8px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+.navbar31 > button > i {
+    font-size: 12px;
+    margin-right: 8px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+.navbar32 {
+    width: 100%;
+    height: 300px;
+    background-color: #FFFFFF;
+}
+.navbar33 {
+    width: 85%;
+    margin: auto;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+}
+.navbar34 > h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.navbar34 > p {
+    font-size: 15px;
+    margin-top: 8px;
+    font-weight: 500;
+}
+.navbar34 > i {
+    font-size: 20px;
+}
+.navbar35 {
+    width: 100%;
+    height: 80px;
+    background-color: #282C31;
+    margin-top: 20px;
+}
+.navbar36 {
+    width: 20%;
+    margin: auto;
+    /* border: 1px solid blue; */
+    padding-top: 15px;
+}
+.navbar37 {
+    display: flex;
+    justify-content: space-between;
+    color: #D3D7DA;
+    font-size: 10px;
+}
+.navbar36 > div:nth-child(2) {
+    color: #D3D7DA;
+    font-size: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
