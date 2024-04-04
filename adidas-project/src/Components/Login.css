@@ -1,0 +1,151 @@
+.login {
+    width: 100%;
+    height: 800px;
+}
+.login1 {
+    width: 85%;
+    margin: auto;
+    height: 880px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+.login-left {
+    width: 48%;
+    height: 300px;
+    /* border: 1px solid black; */
+    /* border: 1px solid black; */
+}
+.login-left > img {
+    width: 100%;
+    height: 300px;
+}
+.login-left > h1 {
+    margin-top: 40px;
+    font-size: 27px;
+    font-weight: bold;
+}
+.login-left > h2 {
+    color: rgb(77, 75, 75);
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.login-left1 > div {
+    display: flex;
+    margin-top: 15px;
+}
+.login-left1 > div > i {
+    margin-left: 8px;
+    font-size: 12px;
+}
+.login-left1 > div > p {
+    margin-left: 10px;
+    font-size: 12px;
+}
+.login-left > p {
+    margin-left: 8px;
+    margin-top: 15px;
+    font-size: 13px;
+}
+.login-right {
+    width: 48%;
+    height: 600px;
+    /* border: 1px solid black; */
+}
+.login-right > img {
+    /* margin-top: -80px; */
+    /* border: 1px solid black; */
+    border: 1px solid black;
+}
+.login-right > h1 {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.login-right > p {
+    margin-top: 15px;
+    font-size: 10px;
+    color: rgb(45, 44, 44);
+}
+.login-right > h2 {
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+.login-right1 {
+    display: flex;
+}
+.login-right1 > div {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+.login-right1 > div > i {
+    font-size: 24px;
+    padding: 8px;
+}
+input {
+    width: 92%;
+    height: 35px;
+    margin-top: 15px;
+    color: gray;
+    font-weight: bold;
+    padding-left: 8px;
+    font-size: 13px;
+}
+.login-right2 {
+    margin-top: 10px;
+    display: flex;
+}
+.login-right2 > input {
+    width: 30px;
+    height: 30px;
+}
+.login-right2 > p {
+    margin-left: 10px;
+    margin-top: 18px;
+    font-size: 11px;
+}
+.login-right3 {
+    text-decoration-line: underline;
+    margin-left: 35px;
+    margin-top: 3px;
+    font-size: 13px;
+}
+.login-right4 {
+    margin-top: 10px;
+    display: flex;
+}
+.login-right4 > input {
+    width: 20px;
+    height: 18px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+.login-right4 > p {
+    margin-left: 10px;
+    margin-top: 18px;
+    font-size: 12px;
+}
+.value {
+    width: 150px;
+    height: 40px;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+/* .value > p{
+    margin-left: 35px;
+    margin-top: 8.5px;
+} */
+/* .login-right > form > button > i {
+    margin-left: 15px;
+    margin-top: 8.5px;
+} */

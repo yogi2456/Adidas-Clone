@@ -68,7 +68,7 @@ const FakeStoreAllProducts = () => {
       {/* <h1 style={{textAlign: "center", marginTop: "30px"}}>Fake Store All Products</h1> */}
       <div style={{marginLeft: "42%", marginTop: "30px"}}>
         <h2>Search Product:</h2>
-        <input placeholder="Mens.." value={search} onChange={handleChange} />
+        <input style={{marginRight: "80px", width: "200px"}} placeholder="Mens.." value={search} onChange={handleChange} />
       </div>
       {filterProducts?.length ? (
         <div
