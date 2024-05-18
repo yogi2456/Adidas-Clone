@@ -116,3 +116,11 @@ input {
     margin-left: 20px;
     margin-top: 17px;
 } */
+
+select {
+    margin: 10px 100px;
+}
+option {
+    background-color: blueviolet;
+    color: white;
+}
