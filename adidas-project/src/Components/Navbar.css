@@ -59,7 +59,7 @@
 .navbar5 {
     display: flex;
     justify-content: space-between;
-    font-size: 8px;
+    font-size: 10px;
     color: gray;
     font-weight: 500;
     margin-top: 5px;
@@ -68,6 +68,9 @@
 .navbar5 > a {
     text-decoration-line: none;
     color: gray;
+}
+.navbar5 > p:nth-child(4) {
+    font-size: 6px;
 }
 .navbar6 {
     display: flex;
@@ -120,4 +123,12 @@
 .navbar7 > div:nth-child(2) > i {
     margin-top: 3px;
     margin-right: 30px;
+}
+.state {
+    width: 170px;
+}
+.state > h1 {
+    font-size: 18px;
+    margin-top: 15px;
+    padding-left: 40px;
 }

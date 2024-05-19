@@ -1,15 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-// import { AuthContext } from './Context/AuthContext';
 import Navbar from "./Navbar";
 import "./Login.css";
 import Footer from "./Footer";
+import { AuthContext } from "./context/AuthContext";
+import api from "../AxiosConfig";
 
 const Login = () => {
   const router = useNavigate();
 
-  // const { LOGIN } =useContext(AuthContext)
+  const { LOGIN } = useContext(AuthContext);
   const [userData, setUserData] = useState({ email: "", password: "" });
   //console.log(userData)
 
@@ -18,32 +19,42 @@ const Login = () => {
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     if (userData.email && userData.password) {
       try {
-        const response = {
-          data: {
-            success: true,
-            message: "Login Successfull",
-            token: "abdgbhhhhhufejksjk",
-            userData: { name: "yogesh", email: "yogesh@gmail.com" },
-          },
-        };
+        const response = await api.post(
+          "/user/login",
+          { userData },
+          // { withCredentials: true }
+        );
+        // const response = {data: {success: true, message: "Login Successfull", token: "abdgbhhhhhufejksjk", userData: {name: "yogesh", email: "yogesh@gmail.com"}}}
         if (response.data.success) {
-          localStorage.setItem("token", JSON.stringify(response.data.token));
-          // LOGIN(response.data.userData)
+          // localStorage.setItem("token", JSON.stringify(response.data.token))
+          LOGIN(response.data.userData);
           toast.success(response.data.message);
           setUserData({ email: "", password: "" });
           router("/");
+        } else {
+          toast.error(response.data.message);
         }
       } catch (error) {
-        toast.error(error);
+        toast.error(error?.response?.data?.message);
       }
     } else {
       alert("All fields are required");
     }
   }
+
+  // useEffect(() => {
+  //   if (state && state?.user?.role !== undefined) {
+  //     if (state?.user?.role === "buyer") {
+  //       router("/");
+  //     } else {
+  //       router("/seller");
+  //     }
+  //   }
+  // }, [state]);
   return (
     <div>
       <Navbar />
@@ -53,6 +64,7 @@ const Login = () => {
             <img
               style={{ width: "100%", height: "70%" }}
               src="https://www.adidas.co.in/glass/react/f69593a/assets/img/account-portal-page-inline.png"
+              alt=""
             />
             <h1>
               JOIN THE CLUB. GET <br /> REWARDED.
@@ -90,6 +102,7 @@ const Login = () => {
             <img
               style={{ width: "35%", height: "25%" }}
               src="https://account-frontends.adidas.com/account_account-portal/1.0.0-experimental.14/assets/adiclub-blue-desktop.e34c412f9253e8d5.svg"
+              alt=""
             />
             <h1>YOUR ADICLUB BENEFITS AWAIT</h1>
             <p>
@@ -114,41 +127,20 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
               <input
                 type="email"
-                placeholder="EMAIL ADDRESS *"
                 onChange={handleChange}
-                name="email"
                 required
-              />{" "}
+                name="email"
+                placeholder="EMAIL *"
+              />
               <br />
               <input
                 type="password"
-                placeholder="PASSWORD *"
                 onChange={handleChange}
-                name="password"
                 required
-              />{" "}
+                name="password"
+                placeholder="PASSWORD *"
+              />
               <br />
-              <div class="login-right2">
-                <input type="checkbox" />
-                <p>
-                  I would like to stay up to date with adidas. I agree to
-                  receive personalised marketing messages from adidas India
-                  Marketing Pvt. Ltd.
-                </p>
-              </div>
-              <div className="login-right3">Read more</div>
-              <div className="login-right2">
-                <input type="checkbox" />
-                <p>
-                  I have read and accepted the Terms & Conditions, the adiClub
-                  Terms & Conditions and the adidas Privacy Policy.
-                </p>
-              </div>
-              <div className="login-right4">
-                <input type="button" />
-                <p>Keep me logged in. Applies to all options.</p>
-              </div>
-              <div className="login-right3">More info</div>
               <input className="value" type="submit" value="Login" />
             </form>
           </div>

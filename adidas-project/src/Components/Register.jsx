@@ -1,29 +1,30 @@
-import React, { useState } from "react";
-import toast from "react-hot-toast";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import api from "../../src/AxiosConfig";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import "./Register.css";
-import api from "../AxiosConfig";
+import "./Register.css"
 
-const Register = () => {
+function Register() {
   const router = useNavigate();
+  // const { state } = useContext(AuthContext);
 
   const [userData, setUserData] = useState({
     name: "",
     email: "",
     password: "",
-    confirmpassword: "",
+    confirmPassword: "",
     role: "buyer",
   });
   // userData.name
   // userData[name]
-  //console.log(userData, "userData")
+  console.log(userData, "userData");
 
-  const handleChange = (event) => {
-    //console.log(event.name.value, event.target.name)
+  function handleChange(event) {
+    // console.log(event.target.value, event.target.name)
     setUserData({ ...userData, [event.target.name]: event.target.value });
-  };
+  }
 
   function handleSelect(event) {
     // console.log("event.target.value")
@@ -36,11 +37,15 @@ const Register = () => {
       userData.name &&
       userData.email &&
       userData.password &&
-      userData.confirmpassword
+      userData.confirmPassword
     ) {
       // await calling backend one server to another server request, backend validation, data to store mongodb
       try {
-        const response = await api.post("/user/register", { userData });
+        const response = await api.post("/user/register", {
+          userData,
+        });
+        // const response = { data: { success: true, message: "Registeration Completed." } }
+        // return res.status(201).json({ success: true, message: "Registeration Completed." })
         if (response.data.success) {
           setUserData({
             name: "",
@@ -56,9 +61,19 @@ const Register = () => {
         toast.error(error.response.data.message);
       }
     } else {
-      alert("All fields are required");
+      alert("All fields are required.");
     }
   }
+
+  // useEffect(() => {
+  //   if(state && state?.user?.role !== undefined) {
+  //     if(state?.user?.role === "buyer") {
+  //       router("/")
+  //     } else {
+  //       router("/seller")
+  //     }
+  //   }
+  // }, [state])
 
   return (
     <div>
@@ -102,69 +117,57 @@ const Register = () => {
                 </div>
               </div>
               <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  name="name"
-                  value={userData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="NAME*"
-                />{" "}
-                <br />
-                <input
-                  type="email"
-                  name="email"
-                  value={userData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="EMAIL ADDRESS *"
-                />{" "}
-                <br />
-                <input
-                  type="password"
-                  name="password"
-                  value={userData.password}
-                  onChange={handleChange}
-                  required
-                  placeholder="PASSWORD *"
-                />{" "}
-                <br />
-                <input
-                  type="confirmpassword"
-                  name="confirmpassword"
-                  value={userData.confirmpassword}
-                  onChange={handleChange}
-                  required
-                  placeholder="CONFIRMPASSWORD"
-                />{" "}
-                <br />
-                <select onChange={handleSelect}>
-                  <option value="buyer">Buyer</option>
-                  <option value="seller">Seller</option>
-                </select>
-                <div className="reg-right2">
-                  <input type="checkbox" required />
-                  <p>
-                    I would like to stay up to date with adidas. I agree to
-                    receive personalised marketing messages from adidas India
-                    Marketing Pvt. Ltd.
-                  </p>
-                </div>
-                <div className="reg-right3">Read more</div>
-                <div className="reg-right2">
-                  <input type="checkbox" required />
-                  <p>
-                    I have read and accepted the Terms & Conditions, the adiClub
-                    Terms & Conditions and the adidas Privacy Policy.
-                  </p>
-                </div>
-                <div className="reg-right4">
-                  <input type="checkbox" required />
-                  <p>Keep me logged in. Applies to all options.</p>
-                </div>
-                <div className="reg-right3">More info</div>
-                <input className="value1" type="submit" value="Register" />
-              </form>
+        <br />
+        <input
+          type="text"
+          name="name"
+          value={userData.name}
+          onChange={handleChange}
+          required
+          placeholder="NAME *"
+        />
+        <br />
+        <br />
+        <input
+          type="email"
+          name="email"
+          value={userData.email}
+          onChange={handleChange}
+          required
+          placeholder="EMAIL *"
+        />
+        <br />
+        <br />
+        <input
+          type="password"
+          name="password"
+          value={userData.password}
+          onChange={handleChange}
+          required
+          placeholder="PASSWORD *"
+        />
+        <br />
+        <br />
+        <input
+          type="password"
+          name="confirmPassword"
+          value={userData.confirmPassword}
+          onChange={handleChange}
+          required
+          placeholder="CONFIRMPASSWORD *"
+        />
+        <br />
+        <select onChange={handleSelect}>
+          <option value="buyer">Buyer</option>
+          <option value="seller">Seller</option>
+        </select>
+        <br />
+        <input className="value1" type="submit" value="Register" />
+      </form> <br/>
+      <div className="value3">
+        <p>you have already registered, please login here..</p>
+        <button className="value2" onClick={() => router("/login")}>Login</button>
+      </div>
             </div>
           </div>
         </div>
@@ -172,8 +175,7 @@ const Register = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default Register;
 
-// { position: "top-right"}
