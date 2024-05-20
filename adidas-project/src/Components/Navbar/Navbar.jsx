@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import './Navbar.css'
 import { useNavigate } from 'react-router-dom'
-import { AuthContext } from './context/AuthContext'
-import api from '../AxiosConfig'
+import { AuthContext } from '../context/AuthContext'
+import api from '../../AxiosConfig'
 import toast from 'react-hot-toast'
 
 const Navbar = () => {
@@ -43,7 +43,7 @@ const Navbar = () => {
                     <p>help</p>
                     <p>orders and returns</p>
                     <p onClick={() => router("/register")}>sign up</p>
-                    <p>{state?.user?.role ? <h1 onClick={Logout}>Logout</h1> : <h2 onClick={() => router("/login")}>Login</h2>}</p>
+                    <button>{state?.user?.role ? <h1 onClick={Logout}>Logout</h1> : <h2 onClick={() => router("/login")}>Login</h2>}</button>
                 </div>
                 <div className="navbar6">
                     {/* <div className="navbar7">

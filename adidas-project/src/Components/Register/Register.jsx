@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import api from "../../src/AxiosConfig";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import api from "../../AxiosConfig";
 import "./Register.css"
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 function Register() {
   const router = useNavigate();

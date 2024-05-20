@@ -1,0 +1,69 @@
+.all1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.all2{
+    width: 22%;
+    height: 340px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.all3{
+    width: 100%;
+    height: 50%;
+    border-radius: 20px 20px 0px 0px;
+}
+.all4{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+.all5{
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+}
+.all9{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.all9 > button:nth-child(1) {
+    width: 80px;
+    height: 25px;
+    background-color: blue;
+    color: white;
+    margin-left: 70px;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+}
+.all9 > button:nth-child(2) {
+    width: 100px;
+    height: 25px;
+    background-color: blue;
+    color: white;
+    margin-left: 62px;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+}
+.all6{
+    text-align: center;
+    margin-top: 70px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+.all7{
+    margin-top: 30px;
+    text-align: center;
+}
+.all7 > input {
+    margin-right: 80px;
+    width: 300px;
+    margin-bottom: 30px;
+}

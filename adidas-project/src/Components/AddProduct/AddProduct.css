@@ -1,0 +1,27 @@
+.add{
+    width: 100%;
+    height: 495px;
+    background-color: #1e97d790;
+    display: grid;
+}
+.add1{
+    place-self: center;
+    width: max(20vw, 300px);
+    color: #808080;
+    background-color: white;
+    display: flex;
+    padding: 15px 30px;
+    flex-direction: column;
+    border-radius: 8px;
+    font-size: 14px;
+    height: 400px;
+}
+input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid gray;
+}
+.btn{
+    background-color: blue;
+    color: white;
+}

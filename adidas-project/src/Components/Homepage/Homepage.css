@@ -1,0 +1,36 @@
+.navbar9 {
+    background-image: url(https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_1920,w_1920/em_in_yougotthis_brand_ss24_mglp_mh_d_f6a4a1e395.jpg);
+    width: 100%;
+    height: 550px;
+    background-size: cover;
+}
+.navbar10 {
+    margin-left: 7%;
+    padding-top: 100px;
+}
+.navbar10 > h2 {
+    font-size: 35px;
+    font-weight: 500;
+    color: white;
+}
+.navbar10 > p {
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    margin-top: 20px;
+}
+.navbar10 > button {
+    width: 200px;
+    margin-top: 30px;
+    display: flex;
+    height: 40px;
+    font-size: 15px;
+}
+.navbar10 > button > p {
+    margin-left: 25px;
+    margin-top: 10px;
+}
+.navbar10 > button > i {
+    margin-left: 15px;
+    margin-top: 10px;
+}
