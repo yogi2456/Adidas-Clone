@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './AllProducts.css';
 import api from '../../AxiosConfig';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { AuthContext } from '../context/AuthContext';
 
 const AllProducts = () => {
 
+    const router = useNavigate();
+
     const [allProducts, setAllProducts] = useState([]);
+
+    const { state } = useContext(AuthContext);
 
     // const [search, setSearch] = useState("");
     // const [filteredProduts, setFilterProducts] = useState([])
@@ -23,6 +30,41 @@ const AllProducts = () => {
         }
         getProducts()
     }, [])
+
+    async function AddToCart(productId) {
+        if(!state?.user?._id) {
+          toast.error("Please login to add products into cart.")
+          router("/login")
+        }
+        try {
+          const response = await api.post("/user/add-to-cart", {userId : state?.user?._id, productId : productId,})
+          if(response.data.success){
+            toast.success(response.data.message);
+          }
+        } catch (error) {
+          console.log(error)
+        }
+      }
+  
+      async function AddToWishlist(productId) {
+        if(!state?.user?._id){
+          toast.error("Please login to add products into wishlist")
+          router("/login")
+        }
+        try {
+          const response = await api.post("/user/add-to-wishlist", {userId : state?.user?._id, productId: productId })
+          if(response.data.message){
+            toast.success(response.data.message);
+          }
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
+      // function redirect(id) {
+      //   // alert(id) 1 2 3 4 5
+      //   router(`/oneproduct/${id}`);
+      // }
 
     // function handleChange(event) {
     //     console.log(event.target.value);
@@ -49,7 +91,7 @@ const AllProducts = () => {
       <h1>All Products</h1>
       {allProducts.length ? <div className='all1'>
         {allProducts.map((item) => (
-            <div className='all2'>
+            <div className='all2' onClick={() => router(`/single-product/${item._id}`)}>
                 <img className='all3' src={item.image} alt=''/>
                 <h1 className='all4'>name: {item.name}</h1>
                 <p className='all5'>Category: {item.category}</p>
@@ -57,8 +99,8 @@ const AllProducts = () => {
                 <p className='all5'>Price: ${item.price}</p>
                 <p className='all5'>Tags: {item.tags}</p>
                 <div className='all9'>
-                    <button>Add to Cart</button>
-                    <button>Add to Wishlist</button>
+                    <button onClick={() => AddToCart(item?._id)}>Add to Cart</button>
+                    <button onClick={() => AddToWishlist(item?._id)}>Add to Wishlist</button>
                 </div>
             </div>
         ))}

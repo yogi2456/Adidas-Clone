@@ -27,6 +27,12 @@
     font-size: 12px;
     font-weight: 500;
 }
+.all6{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: 500;
+}
 .all9{
     display: flex;
     flex-direction: column;
@@ -51,20 +57,4 @@
     margin-top: 10px;
     border: none;
     outline: none;
-}
-.all6{
-    text-align: center;
-    margin-top: 70px;
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 30px;
-}
-.all7{
-    margin-top: 30px;
-    text-align: center;
-}
-.all7 > input {
-    margin-right: 80px;
-    width: 300px;
-    margin-bottom: 30px;
 }
