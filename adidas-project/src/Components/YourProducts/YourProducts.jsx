@@ -27,19 +27,19 @@ const YourProducts = () => {
       }
     }
 
-    async function deleteProduct(id) {
-      // alert(id)
-      try {
-          const response = await api.delete('/api/v1/product/delete-product', { params: { id } })
-          if (response.data.success) {
-              getProducts()
-              toast.success(response.data.message)
-          }
-      } catch (error) {
-          console.log(error, "error here")
-          toast.error(error?.response.data.message)
-      }
-  }
+  //   async function deleteProduct(id) {
+  //     // alert(id)
+  //     try {
+  //         const response = await api.delete('/api/v1/product/delete-product', { params: { id } })
+  //         if (response.data.success) {
+  //             getProducts()
+  //             toast.success(response.data.message)
+  //         }
+  //     } catch (error) {
+  //         console.log(error, "error here")
+  //         toast.error(error?.response.data.message)
+  //     }
+  // }
 
     useEffect(() => {
       if(state?.user && state?.user?.name === undefined) {
@@ -85,7 +85,6 @@ const YourProducts = () => {
        <p className='all5'>Tags: {productObj.tags}</p>
        <div className='all9'>
                     <button onClick={() => router(`/update-product/${productObj._id}`)}>Update?</button>
-                    <button onClick={() => deleteProduct(productObj._id)}>Delete?</button>
                 </div>
    </div>
  ))}
@@ -95,3 +94,6 @@ const YourProducts = () => {
 }
 
 export default YourProducts
+
+
+{/* <button onClick={() => deleteProduct(productObj._id)}>Delete?</button> */}
