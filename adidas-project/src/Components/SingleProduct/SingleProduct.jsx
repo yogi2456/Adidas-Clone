@@ -18,7 +18,7 @@ const SingleProduct = () => {
           router("/login")
         }
         try {
-          const response = await api.post("/user/add-to-cart", {userId : state?.user?._id, productId : productId,})
+          const response = await api.post("/api/v1/user/add-to-cart", {userId : state?.user?._id, productId : productId,})
           if(response.data.success){
             toast.success(response.data.message);
           }
@@ -33,7 +33,7 @@ const SingleProduct = () => {
           router("/login")
         }
         try {
-          const response = await api.post("/user/add-to-wishlist", {userId : state?.user?._id, productId: productId })
+          const response = await api.post("/api/v1/user/add-to-wishlist", {userId : state?.user?._id, productId: productId })
           if(response.data.message){
             toast.success(response.data.message);
           }
@@ -45,7 +45,7 @@ const SingleProduct = () => {
     useEffect(() => {
         async function getSingleProductData() {
             try {
-                const { data } = await api.get(`/product/get-single-product?id=${id}`)
+                const { data } = await api.get(`/api/v1/product/get-single-product?id=${id}`)
                 if (data.success) {
                     setProductData(data.product)
                 }

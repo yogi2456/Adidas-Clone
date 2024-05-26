@@ -41,7 +41,7 @@ function Register() {
     ) {
       // await calling backend one server to another server request, backend validation, data to store mongodb
       try {
-        const response = await api.post("/user/register", {
+        const response = await api.post("/api/v1/user/register", {
           userData,
         });
         // const response = { data: { success: true, message: "Registeration Completed." } }

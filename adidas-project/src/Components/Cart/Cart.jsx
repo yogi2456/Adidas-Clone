@@ -18,7 +18,7 @@ const Cart = () => {
   async function getYourCartProducts() {
       try {
           // const { data } = await axios.get('https://fakestoreapi.com/products');
-          const response = await api.post('/user/cart', {id: state?.user?.id});
+          const response = await api.post('/api/v1/user/cart', {id: state?.user?.id});
           // console.log(data, "data here")
           if (response.data.success) {
               setCartProducts(response.data.products)
@@ -30,7 +30,7 @@ const Cart = () => {
 
   async function deleteProduct(productId) {
       try {
-          const response = await api.post('/user/delete-cart', { productId, userId: state?.user?.id })
+          const response = await api.post('/api/v1/user/delete-cart', { productId, userId: state?.user?.id })
           if (response.data.success) {
               toast.success(response.data.message)
               setCartProducts(response.data.products)
