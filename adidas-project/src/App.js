@@ -10,25 +10,26 @@ import YourProducts from './Components/YourProducts/YourProducts';
 import Cart from './Components/Cart/Cart';
 import UpdateProduct from './Components/UpdateProduct/UpdateProduct';
 import SingleProduct from './Components/SingleProduct/SingleProduct';
+import Navbar from './Components/Navbar/Navbar';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
     <div className="App">
       {/* <Navbar/> */}
+      <Navbar/>
       <Routes>
         <Route path='*' element={<PageNotFound/>}/>
         <Route path='/' element={<Homepage/>} />
-        {/* <Route path='/fake-store-all-products' element={<FakeStoreAllProducts/>}/>
-        <Route path='/fake-store-single-product/:id' element={<FakeStoreSingleProduct/>} /> */}
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/add-product' element={<AddProduct/>}/>
         <Route path='/your-products' element={<YourProducts/>}/>
-        <Route path='/single-product' element={<SingleProduct/>}/>
-        {/* <Route path='/one-product' element={<OneProduct/>}/> */}
+        <Route path='/single-product/:id' element={<SingleProduct/>}/>
         <Route path='/update-product/:id' element={<UpdateProduct/>}/>
         <Route path='/cart' element={<Cart/>}/>
       </Routes>
+      <Footer/>
       {/* <Footer/> */}
       
     </div>
@@ -36,3 +37,4 @@ function App() {
 }
 
 export default App;
+

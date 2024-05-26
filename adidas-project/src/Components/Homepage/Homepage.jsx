@@ -1,14 +1,14 @@
 import React from 'react'
 import './Homepage.css'
 // import FakeStoreAllProducts from '../FakeStoreAllProducts'
-import Navbar from '../Navbar/Navbar'
-import Footer from '../Footer/Footer'
+// import Navbar from '../Navbar/Navbar'
+// import Footer from '../Footer/Footer'
 import AllProducts from '../AllProducts/AllProducts'
 
 const Homepage = () => {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
     {/* <FakeStoreAllProducts/> */}
     <div class="navbar9">
             <div class="navbar10">
@@ -21,7 +21,7 @@ const Homepage = () => {
             </div>
         </div>
     <AllProducts/>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   )
 }

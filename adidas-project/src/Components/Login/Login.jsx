@@ -1,11 +1,11 @@
 import React, { useContext, useState, } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
+// import Navbar from "../Navbar/Navbar";
 import "./Login.css";
 import { AuthContext } from "../context/AuthContext";
 import api from "../../AxiosConfig";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 
 const Login = () => {
   const router = useNavigate();
@@ -24,7 +24,7 @@ const Login = () => {
     if (userData.email && userData.password) {
       try {
         const response = await api.post(
-          "/user/login",
+          "/api/v1/user/login",
           { userData },
           // { withCredentials: true }
         );
@@ -57,7 +57,7 @@ const Login = () => {
   // }, [state]);
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="login">
         <div className="login1">
           <div className="login-left">
@@ -146,7 +146,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
