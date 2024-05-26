@@ -24,7 +24,7 @@ const Login = () => {
     if (userData.email && userData.password) {
       try {
         const response = await api.post(
-          "/api/v1/user/login",
+          "/user/login",
           { userData },
           // { withCredentials: true }
         );

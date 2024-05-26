@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import api from "../../AxiosConfig";
 import "./Register.css"
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
+// import Navbar from "../Navbar/Navbar";
+// import Footer from "../Footer/Footer";
 
 function Register() {
   const router = useNavigate();
@@ -41,7 +41,7 @@ function Register() {
     ) {
       // await calling backend one server to another server request, backend validation, data to store mongodb
       try {
-        const response = await api.post("/api/v1/user/register", {
+        const response = await api.post("/user/register", {
           userData,
         });
         // const response = { data: { success: true, message: "Registeration Completed." } }
@@ -77,7 +77,7 @@ function Register() {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="register">
         <div className="register1">
           <div className="register2">
@@ -172,7 +172,7 @@ function Register() {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

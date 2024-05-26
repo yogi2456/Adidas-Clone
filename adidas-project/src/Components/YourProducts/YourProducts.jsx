@@ -17,7 +17,7 @@ const YourProducts = () => {
 
     async function getProducts() {
       try {
-        const response = await api.post("/api/v1/product/get-product-by-seller", { userId: state?.user?._id });
+        const response = await api.post("/product/get-product-by-seller", { userId: state?.user?._id });
         if(response.data.success){
           setAllProducts(response.data.products)
         }
@@ -30,7 +30,7 @@ const YourProducts = () => {
     async function deleteProduct(id) {
       // alert(id)
       try {
-          const response = await api.delete('/api/v1/product/delete-product', { params: { id } })
+          const response = await api.delete('/product/delete-product', { params: { id } })
           if (response.data.success) {
               getProducts()
               toast.success(response.data.message)

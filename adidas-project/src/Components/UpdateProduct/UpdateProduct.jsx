@@ -14,7 +14,7 @@ const UpdateProduct = () => {
 
     async function getProductData() {
         try {
-            const response = await api.get(`/api/v1/product/get-single-product?id=${id}`)
+            const response = await api.get(`/product/get-single-product?id=${id}`)
             if (response.data.success) {
                 setProductData(response.data.product)
             }
@@ -30,7 +30,7 @@ const UpdateProduct = () => {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            const response = await api.post('/api/v1/product/update-product', { productData, userId: state.user._id, })
+            const response = await api.post('/product/update-product', { productData, userId: state.user._id, })
             if (response.data.success) {
                 toast.success(response.data.message)
                 router('/your-products')
